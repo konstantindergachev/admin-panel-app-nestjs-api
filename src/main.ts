@@ -10,7 +10,7 @@ async function bootstrap() {
   app.use(cookieParser());
   app.enableCors({ origin: [process.env.CORS_HOST], credentials: true });
 
-  const port = process.env.PORT || 5000;
+  const port = process.env.PORT;
   await app.listen(port);
   Logger.log(`Server starts on port: ${port}`);
 }
