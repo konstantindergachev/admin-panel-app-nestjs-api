@@ -17,9 +17,9 @@ const getConfig = async (
   cli: {
     migrationsDir: 'src/migrations',
   },
-  // ssl: {
-  //   rejectUnauthorized: false,
-  // },
+  ssl: {
+    rejectUnauthorized: false,
+  },
 });
 
 export default getConfig;
