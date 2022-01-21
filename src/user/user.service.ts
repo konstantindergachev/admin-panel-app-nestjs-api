@@ -27,6 +27,9 @@ export class UserService {
       password: hashed,
     });
 
+    delete user.password;
+    delete user.password_confirm;
+
     return user;
   }
 
