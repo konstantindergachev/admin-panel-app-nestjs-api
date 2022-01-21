@@ -38,3 +38,6 @@ lerna-debug.log*
 /src/configs/*config.ts
 
 .env
+
+#database
+/pgadmin
