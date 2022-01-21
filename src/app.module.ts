@@ -1,4 +1,5 @@
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ServeStaticModule } from '@nestjs/serve-static';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
@@ -13,6 +14,7 @@ import { OrderModule } from './order/order.module';
 import { APP_GUARD } from '@nestjs/core';
 import { PermissionGuard } from './permission/permission.guard';
 import getConfig from '@app/ormconfig';
+import { join } from 'path';
 
 @Module({
   imports: [
@@ -22,6 +24,9 @@ import getConfig from '@app/ormconfig';
       inject: [ConfigService],
       useFactory: async (configService: ConfigService) =>
         await getConfig(configService),
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', 'build'),
     }),
     UserModule,
     AuthModule,
