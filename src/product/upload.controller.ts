@@ -20,7 +20,7 @@ export class UploadController {
   @UseInterceptors(
     FileInterceptor('image', {
       storage: diskStorage({
-        destination: './uploads',
+        destination: 'uploads',
         filename(_, file, callback) {
           const randomName = Array(32)
             .fill(null)
