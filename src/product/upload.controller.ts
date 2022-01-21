@@ -34,7 +34,7 @@ export class UploadController {
   )
   uploadFile(@UploadedFile() file: Express.Multer.File) {
     return {
-      url: `http://localhost:5000/api/${file.path}`,
+      url: `${process.env.UPLOAD_HOST}/api/${file.path}`,
     };
   }
 
