@@ -34,10 +34,6 @@ lerna-debug.log*
 !.vscode/launch.json
 !.vscode/extensions.json
 
-#ORM Config
-/src/configs/*config.ts
-/src/*config.ts
-
 .env
 
 #database

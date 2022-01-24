@@ -1,3 +1,5 @@
+import { ConfigService } from '@nestjs/config';
+
 interface ISignOptions {
   expiresIn: string;
 }
@@ -7,7 +9,9 @@ interface IJwtConstants {
   signOptions: ISignOptions;
 }
 
-export const jwtConfig: IJwtConstants = {
-  secret: 'secretStr#ing',
+export const getJwtConfig = async (
+  configService: ConfigService,
+): Promise<IJwtConstants> => ({
+  secret: configService.get<string>('SECRET_STRING'),
   signOptions: { expiresIn: '1d' },
-};
+});
